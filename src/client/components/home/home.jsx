@@ -2,7 +2,6 @@
  * Created by chia-yenhung on 4/5/17.
  */
 import React from "react";
-import ReactDom from "react-dom";
 
 const Home = () => {
   return (
@@ -12,4 +11,4 @@ const Home = () => {
   );
 };
 
-ReactDom.render(<Home/>, document.getElementById("app"));
+export default Home;
