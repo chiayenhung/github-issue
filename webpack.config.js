@@ -5,7 +5,10 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-  entry: './src/client/app.js',
+  entry: [
+    'babel-polyfill',
+    './src/client/app.js'
+  ],
   output: { path: __dirname, filename: 'bundle.js' },
   resolve: {
     extensions: ['.js', '.jsx', '.styl']
@@ -21,7 +24,7 @@ module.exports = {
           presets: ['es2015', 'react']
         }
       },
-      { test: /\.styl$/, loader: 'style-loader!css-loader!stylus-loader' }
+      { test: /\.styl$/, loader: 'style-loader!css-loader!autoprefixer-loader!stylus-loader' }
     ]
   },
 };
