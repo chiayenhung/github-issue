@@ -1,13 +1,34 @@
 import React, {PropTypes} from "react";
 
+const Label = (props) => {
+  const {
+    label = {}
+  } = props;
+  if (!label.name) return null;
+  const style = {
+    marginLeft: "5px",
+    color: `#${label.color}`
+  };
+  return (
+    <span
+      style={style}>
+      { label.name }
+    </span>
+  );
+};
+
 const Labels = (props) => {
   const {
     value
   } = props;
   return (
-    <span>
-      { value.join(", ") }
-    </span>
+    <div>
+    {
+      value.map((label) => {
+        return <Label key={label.id} label={label}/>
+      })
+    }
+    </div>
   );
 };
 

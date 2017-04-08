@@ -1,6 +1,9 @@
 /**
  * Created by chia-yenhung on 4/7/17.
  */
+import { RAILS_RAILS_ISSUES } from "../../utils/api-locator";
+import { createPromise } from "../../utils/promise-creator";
+
 import {
   ISSUE_TABLE_GET_ISSUES,
   ISSUE_TABLE_GET_ISSUES_SUCCESS,
@@ -29,16 +32,14 @@ export const getIssuesFailed = (error) => {
 
 export const fetchIssues = () => {
   return (dispatch) => {
+    const opts =
+      {
+        url: RAILS_RAILS_ISSUES
+      };
     dispatch(getIssues());
-    fetch("https://api.github.com/repos/rails/rails/issues")
-      .then((response) => {
-        response.json()
-          .then((data) => {
-            dispatch(getIssuesSuccess(data));
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+    return createPromise(opts)
+      .then((data) => {
+        dispatch(getIssuesSuccess(data));
       })
       .catch((error) => {
         dispatch(getIssuesFailed(error));
