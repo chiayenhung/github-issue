@@ -1,12 +1,9 @@
 /**
  * Created by chia-yenhung on 4/5/17.
  */
+import { combineReducers } from "redux";
+import { issueTableReducers as issueTable } from "./components/issue-table";
 
-const Reducers = (state = null, action) => {
-  switch (action.type) {
-    default:
-      return state;
-  }
-};
-
-export default  Reducers;
+export default combineReducers({
+  issueTable
+});

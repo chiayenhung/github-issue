@@ -1,16 +1,16 @@
 import React, {PropTypes} from "react";
 import Table from "../table";
-import { columns, results } from "./issue-table-config";
+import { columns } from "./issue-table-config";
 
 const IssueTable = (props) => {
-  // const {
-  //   results = []
-  // } = props;
+  const {
+    issues = []
+  } = props;
   return (
     <div>
       <Table
         columns={columns}
-        results={results}/>
+        results={issues}/>
     </div>
   );
 };

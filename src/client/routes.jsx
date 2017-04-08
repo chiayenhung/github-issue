@@ -1,12 +1,12 @@
 import React, {PropTypes} from "react";
-import { Router, Route } from "react-router";
-import createBrowserHistory from "history/createBrowserHistory"
-import IssueTable from "./components/issue-table";
+import { Router, Route, browserHistory } from "react-router";
+// import createBrowserHistory from "history"
+import IssueTable, { mounts as issueTableMounts } from "./components/issue-table";
 
 const Routes = () => {
   return (
-    <Router history={createBrowserHistory()}>
-      <Route path="/" component={IssueTable}/>
+    <Router history={browserHistory}>
+      <Route path="/" component={IssueTable} onEnter={issueTableMounts.onEnter}/>
     </Router>
   );
 };
