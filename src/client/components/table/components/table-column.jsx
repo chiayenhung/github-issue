@@ -9,7 +9,8 @@ const TableColumn = (props) => {
   const Column = column.component || "span";
 
   return (
-    <div>
+    <div
+      className="table-column">
       <Column
         value={value}>
         { typeof value === "string" ? value : "" }
