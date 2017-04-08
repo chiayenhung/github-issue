@@ -7,6 +7,10 @@ var webpack = require('webpack');
 module.exports = {
   entry: './src/client/app.js',
   output: { path: __dirname, filename: 'bundle.js' },
+  resolve: {
+    extensions: ['.js', '.jsx', '.styl']
+  },
+  devtool: 'source-map',
   module: {
     loaders: [
       {
@@ -16,7 +20,8 @@ module.exports = {
         query: {
           presets: ['es2015', 'react']
         }
-      }
+      },
+      { test: /\.styl$/, loader: 'style-loader!css-loader!stylus-loader' }
     ]
   },
 };

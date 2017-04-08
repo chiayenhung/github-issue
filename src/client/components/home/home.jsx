@@ -3,10 +3,14 @@
  */
 import React from "react";
 
-const Home = () => {
+const Home = (props) => {
+  const {
+    children
+  } = props;
   return (
     <div>
       Home
+      { children }
     </div>
   );
 };
