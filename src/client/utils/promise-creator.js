@@ -32,7 +32,7 @@ export const objToQuery = (opts) => {
   } = opts;
   for (const key in data) {
     if (data.hasOwnProperty(key)) {
-      strs.push(`${key}=data[key]`);
+      strs.push(`${key}=${data[key]}`);
     }
   }
   return strs.join("&");

@@ -3,6 +3,8 @@
  */
 import { RAILS_RAILS_ISSUES } from "../../utils/api-locator";
 import { createPromise } from "../../utils/promise-creator";
+import getPage from "./selectors/page-selector";
+import getPerPage from "./selectors/per-page-selector";
 
 import {
   ISSUE_TABLE_GET_ISSUES,
@@ -31,10 +33,15 @@ export const getIssuesFailed = (error) => {
 };
 
 export const fetchIssues = () => {
-  return (dispatch) => {
+  return (dispatch, getState) => {
+    const data = {
+      page: getPage(getState()),
+      per_page: getPerPage(getState())
+    };
     const opts =
       {
-        url: RAILS_RAILS_ISSUES
+        url: RAILS_RAILS_ISSUES,
+        data
       };
     dispatch(getIssues());
     return createPromise(opts)

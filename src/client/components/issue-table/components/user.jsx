@@ -3,11 +3,15 @@ import React, {PropTypes} from "react";
 const User = (props) => {
   const {
     value: {
-      login
+      login,
+      avatar_url
     } = {}
   } = props;
   return (
-    <span>
+    <span
+      className="table-column-user">
+      <img
+        src={avatar_url}/>
       { login }
     </span>
   );
