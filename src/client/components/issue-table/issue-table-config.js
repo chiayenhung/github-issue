@@ -2,8 +2,8 @@
  * Created by chia-yenhung on 4/7/17.
  */
 import LabelTitle from "./components/label-title";
-import Labels from "./components/labels";
-import User from "./components/user";
+import Labels from "../../components/labels/labels";
+import User from "../../components/user/";
 import Summary from "./components/summary";
 
 export const columns = [
