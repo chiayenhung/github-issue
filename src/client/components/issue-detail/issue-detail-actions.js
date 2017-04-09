@@ -3,6 +3,7 @@
  */
 import { RAILS_RAILS_ISSUES } from "../../utils/api-locator";
 import { createPromise } from "../../utils/promise-creator";
+import { actions as spinnerActions } from "../../components/spinner";
 import {
   ISSUE_DETAIL_GET_DETAIL,
   ISSUE_DETAIL_GET_DETAIL_SUCCESS,
@@ -35,11 +36,14 @@ export const fetchIssueDetail = (issueNumber) => {
       url: `${RAILS_RAILS_ISSUES}/${issueNumber}`
     };
     dispatch(getIssueDetail());
+    dispatch(spinnerActions.openSpinner());
     return createPromise(opts)
       .then((data) => {
+        dispatch(spinnerActions.closeSpinner());
         dispatch(getIssueDetailSuccess(data));
       })
       .catch((error) => {
+        dispatch(spinnerActions.closeSpinner());
         dispatch(getIssueDetailFailed(error));
       });
   };

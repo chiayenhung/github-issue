@@ -1,19 +1,37 @@
 import React, {PropTypes} from "react";
+import classnames from "classnames";
+
+const getType = (type) => {
+  if (type === "open") return "label-primary";
+  if (type === "close") return "label-info";
+  return "label-default";
+};
 
 const Label = (props) => {
   const {
-    label = {}
+    type,
+    label: {
+      color,
+      name
+    } = {}
   } = props;
-  if (!label.name) return null;
+  if (!name) return null;
   const style = {
-    marginLeft: "5px",
-    color: `#${label.color}`
+    marginLeft: "5px"
+  };
+  if (color) {
+    style.color = `#${color}`;
+  }
+  const labelType = getType(type);
+  const classes = {
+    label: true,
+    [labelType]: true
   };
   return (
     <span
-      className="label label-default"
+      className={classnames(classes)}
       style={style}>
-      { label.name }
+      { name }
     </span>
   );
 };

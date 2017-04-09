@@ -1,6 +1,6 @@
 import React, {PropTypes} from "react";
 import User from "../../components/user";
-import Labels from "../../components/labels";
+import Labels, { Label } from "../../components/labels";
 
 const IssueDetail = (props) => {
   const {
@@ -20,9 +20,12 @@ const IssueDetail = (props) => {
       </h1>
       <User
         value={user}/>
-      <p>
-        {`state: ${state}`}
-      </p>
+      <div>
+        <Label
+          type={state}
+          label={{ name: state }}>
+        </Label>
+      </div>
       <p>
         { body }
       </p>
