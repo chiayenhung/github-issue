@@ -24,7 +24,22 @@ module.exports = {
           presets: ['es2015', 'react']
         }
       },
-      { test: /\.styl$/, loader: 'style-loader!css-loader!autoprefixer-loader!stylus-loader' }
+      {
+        test: /\.styl$/,
+        loader: 'style-loader!css-loader!autoprefixer-loader!stylus-loader'
+      },
+      {
+        test: /\.woff(2)?$/i,
+        loader: "url-loader?limit=10000&mimetype=application/font-woff"
+      },
+      {
+        test: /\.(ttf|eot)$/i,
+        loader: "file-loader"
+      },
+      {
+        test: /\.svg/,
+        loader: 'svg-url-loader',
+      }
     ]
   },
 };

@@ -1,7 +1,7 @@
 import React, {PropTypes} from "react";
 import { Router, Route, browserHistory } from "react-router";
 import IssueTable, { mounts as issueTableMounts } from "./components/issue-table";
-import IssueDetail from "./components/issue-detail";
+import IssueDetail, { mounts as issueDetailMounts } from "./components/issue-detail";
 
 const Routes = () => {
   return (
@@ -12,7 +12,8 @@ const Routes = () => {
         onEnter={issueTableMounts.onEnter}/>
       <Route
         path="/issue/:number"
-        component={IssueDetail}/>
+        component={IssueDetail}
+        onEnter={issueDetailMounts.onEnter}/>
     </Router>
   );
 };
