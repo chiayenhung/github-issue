@@ -9,7 +9,8 @@ import getPerPage from "./selectors/per-page-selector";
 import {
   ISSUE_TABLE_GET_ISSUES,
   ISSUE_TABLE_GET_ISSUES_SUCCESS,
-  ISSUE_TABLE_GET_ISSUES_FAILED
+  ISSUE_TABLE_GET_ISSUES_FAILED,
+  ISSUE_TABLE_NAV_PAGE
 } from "./issue-table-action-types";
 
 export const getIssues = () => {
@@ -51,5 +52,12 @@ export const fetchIssues = () => {
       .catch((error) => {
         dispatch(getIssuesFailed(error));
       });
+  };
+};
+
+export const navPage = (nextPage) => {
+  return {
+    type: ISSUE_TABLE_NAV_PAGE,
+    nextPage
   };
 };
