@@ -11,6 +11,7 @@ const User = (props) => {
     <span
       className="table-column-user">
       <img
+        className="img-thumbnail"
         src={avatar_url}/>
       { login }
     </span>

@@ -3,6 +3,7 @@
  */
 import { RAILS_RAILS_ISSUES } from "../../utils/api-locator";
 import { createPromise } from "../../utils/promise-creator";
+import { actions as spinnerActions } from "../../components/spinner";
 import getPage from "./selectors/page-selector";
 import getPerPage from "./selectors/per-page-selector";
 
@@ -45,11 +46,14 @@ export const fetchIssues = () => {
         data
       };
     dispatch(getIssues());
+    dispatch(spinnerActions.openSpinner());
     return createPromise(opts)
       .then((data) => {
+        dispatch(spinnerActions.closeSpinner());
         dispatch(getIssuesSuccess(data));
       })
       .catch((error) => {
+        dispatch(spinnerActions.closeSpinner());
         dispatch(getIssuesFailed(error));
       });
   };
