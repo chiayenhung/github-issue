@@ -15,17 +15,18 @@ const IssueDetail = (props) => {
   } = props;
   return (
     <div>
-      <h1>
-        { title }
-      </h1>
-      <User
-        value={user}/>
-      <div>
+      <div
+        className="issue-detail-title">
+        <h1>
+          { title }
+        </h1>
         <Label
           type={state}
           label={{ name: state }}>
         </Label>
       </div>
+      <User
+        value={user}/>
       <p>
         { body }
       </p>
