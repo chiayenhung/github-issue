@@ -11,6 +11,7 @@ const Label = (props) => {
   };
   return (
     <span
+      className="label label-default"
       style={style}>
       { label.name }
     </span>

@@ -9,21 +9,23 @@ const Table = (props) => {
     onRowClick
   } = props;
   return (
-    <div
-      className="table">
+    <table
+      className="table table-striped table-hover">
       <TableHeader
         columns={columns}/>
-      {
-        results.map((result) => {
-          return (
-            <TableRow
-              columns={columns}
-              result={result}
-              onRowClick={onRowClick}/>
-          );
-        })
-      }
-    </div>
+      <tbody>
+        {
+          results.map((result) => {
+            return (
+              <TableRow
+                columns={columns}
+                result={result}
+                onRowClick={onRowClick}/>
+            );
+          })
+        }
+      </tbody>
+    </table>
   );
 };
 

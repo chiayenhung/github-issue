@@ -7,20 +7,23 @@ const TableHeader = (props) => {
   } = props;
 
   return (
-    <div
+    <thead
       className="table-header">
-      {
-        columns.map((column) => {
-          const {
-            title
-          } = column;
-          return (
-            <TableColumn
-              value={title}/>
-          );
-        })
-      }
-    </div>
+      <tr>
+        {
+          columns.map((column) => {
+            const {
+              title
+            } = column;
+            return (
+              <TableColumn
+                header
+                value={title}/>
+            );
+          })
+        }
+      </tr>
+    </thead>
   );
 };
 

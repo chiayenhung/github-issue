@@ -22,7 +22,7 @@ const TableRow = (props) => {
   };
 
   return (
-    <div
+    <tr
       className={classnames(rowStyles)}
       onClick={handleOnRowClick}>
       {
@@ -38,7 +38,7 @@ const TableRow = (props) => {
           );
         })
       }
-    </div>
+    </tr>
   );
 };
 
