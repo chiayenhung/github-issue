@@ -1,16 +1,30 @@
 import React, {PropTypes} from "react";
+import classnames from "classnames";
 import TableColumn from "./table-column";
 import { get } from "../utils";
 
 const TableRow = (props) => {
   const {
     result,
-    columns = []
+    columns = [],
+    onRowClick
   } = props;
+
+  const rowStyles = {
+    "table-row": true,
+    "table-row-clickable": !!onRowClick
+  };
+
+  const handleOnRowClick = () => {
+    if (onRowClick) {
+      onRowClick(result);
+    }
+  };
 
   return (
     <div
-      className="table-row">
+      className={classnames(rowStyles)}
+      onClick={handleOnRowClick}>
       {
         columns.map((column) => {
           const {

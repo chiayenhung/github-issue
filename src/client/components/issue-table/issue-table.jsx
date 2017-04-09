@@ -4,13 +4,25 @@ import { columns } from "./issue-table-config";
 
 const IssueTable = (props) => {
   const {
-    issues = []
+    issues = [],
+    router: {
+      push
+    } = {}
   } = props;
+
+  const handleOnRowClick = (result) => {
+    const {
+      number
+    } = result;
+    push(`/issue/${number}`);
+  };
+
   return (
     <div>
       <Table
         columns={columns}
-        results={issues}/>
+        results={issues}
+        onRowClick={handleOnRowClick}/>
     </div>
   );
 };

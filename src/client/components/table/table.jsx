@@ -5,7 +5,8 @@ import TableRow from "./components/table-row";
 const Table = (props) => {
   const {
     columns = [],
-    results = []
+    results = [],
+    onRowClick
   } = props;
   return (
     <div
@@ -17,7 +18,8 @@ const Table = (props) => {
           return (
             <TableRow
               columns={columns}
-              result={result}/>
+              result={result}
+              onRowClick={onRowClick}/>
           );
         })
       }
