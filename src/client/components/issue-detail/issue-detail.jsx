@@ -1,6 +1,7 @@
 import React, {PropTypes} from "react";
 import User from "../../components/user";
 import Labels, { Label } from "../../components/labels";
+import Comments from "../comments";
 
 const IssueDetail = (props) => {
   const {
@@ -32,6 +33,8 @@ const IssueDetail = (props) => {
       </p>
       <Labels
         value={labels || []}/>
+      <Comments
+        url={comments_url}/>
     </div>
   );
 };
