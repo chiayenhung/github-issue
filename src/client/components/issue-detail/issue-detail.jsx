@@ -2,6 +2,7 @@ import React, {PropTypes} from "react";
 import User from "../../components/user";
 import Labels, { Label } from "../../components/labels";
 import Comments from "../comments";
+import Mentions from "../mentions";
 
 const IssueDetail = (props) => {
   const {
@@ -29,7 +30,8 @@ const IssueDetail = (props) => {
       <User
         value={user}/>
       <p>
-        { body }
+        <Mentions
+          value={body}/>
       </p>
       <Labels
         value={labels || []}/>
