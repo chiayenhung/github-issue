@@ -28,7 +28,7 @@ export const getMentions = (body) => {
 export const getParagraphs = (body) => {
   if (!body) return [];
   let texts = [];
-  const pattern = "\n\r";
+  const pattern = "\n";
   const paragraphs = body.split(pattern);
   paragraphs.forEach((paragraph) => {
     texts = texts.concat(getMentions(paragraph));
